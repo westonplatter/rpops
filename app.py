@@ -6,13 +6,10 @@ app = Flask(__name__)
 
 @app.route('/rolling_mean_series', methods=['POST'])
 def rolling_mean_series():
-    j = request.json
-    data = j["data"]
-
-    window = (j["window"] if "window" in j else 6)
+    data = request.json["data"]
 
     # @TODO redo this so it's not serializing and deserializing
-    mean = pd.Series(data).rolling(window=window).mean()
+    mean = pd.Series(data).rolling(window=6).mean()
     json_values = mean.to_json(orient="values")
     array = json.loads(json_values)
 

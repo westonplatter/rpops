@@ -1,15 +1,24 @@
-RPOPs - restful panda operations
+# RPOPs
+Restful panda operations
 
 
-# development
+## development
 Run this,
 ```
 FLASK_ENV=development flask run
 ```
 
 
-# production
+## production
 Run this,
 ```
+docker pull westonplatter/rpops:latest
+docker run -p 5000:5000 westonplatter/rpops:latest
+```
 
+
+## build
+Run this,
+```
+docker build -t westonplatter/rpops:latest .
 ```
